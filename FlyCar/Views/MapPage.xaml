@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:FlyCar;assembly=FlyCar"
+    x:Class="FlyCar.Views.MapPage">
+
+
+    <ContentPage.Content>
+        <StackLayout>
+            <local:CustomMap
+                x:Name="customMap"
+                IsShowingUser="true"
+                MapType="Street" />
+            <Frame CornerRadius="20"
+                   HasShadow="true"
+                   Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Latitud"
+                           Grid.Column="0"
+                           Grid.Row="0">
+                        
+                    </Label>
+                    <Label Text="{Binding Path=Latitud}"
+                           Grid.Column="1"
+                           Grid.Row="0">
+                        
+                    </Label>
+                    <Label Text="Longitud"
+                           Grid.Column="0"
+                           Grid.Row="1">
+                        
+                    </Label>
+                    <Label Text="{Binding Path=Longitud}"
+                           Grid.Column="1"
+                           Grid.Row="1">
+                        
+                    </Label>
+                    <Label Text="Velocidad"
+                           Grid.Column="0"
+                           Grid.Row="2">
+                        
+                    </Label>
+                    <Label Text="{Binding Path=Velocidad}"
+                           Grid.Column="1"
+                           Grid.Row="2">
+                        
+                    </Label>
+                    <Grid 
+                        Grid.ColumnSpan="2"
+                        Grid.Column="0"
+                        Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            BackgroundColor="White"
+                            BorderColor="Black"
+                            BorderWidth="1"
+                            BorderRadius="23"
+                            Command="{Binding CerrarCommand}"
+                            Text="X"
+                            TextColor="Black">
+                        </Button>
+                        <Button
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            BackgroundColor="Black"
+                            BorderRadius="23"
+                            Command="{Binding IniciarCommand}"
+                            Text="{Binding Path=Text}"
+                            TextColor="White">
+                        </Button>
+                        <Button
+                            Grid.Column="2"
+                            Grid.Row="0"
+                            BackgroundColor="White"
+                            BorderColor="Black"
+                            BorderWidth="1"
+                            BorderRadius="23"
+                            Command="{Binding EnviarCommand}"
+                            IsEnabled="{Binding IsEnabled}"
+                            Text="Enviar"
+                            TextColor="Black">
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

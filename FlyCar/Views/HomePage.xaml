@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:FlyCar.Views;assembly=FlyCar"
+            xmlns:viewModels="clr-namespace:FlyCar.ViewModels; assembly=FlyCar"
+            BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
+            x:Class="FlyCar.HomePage">
+    <TabbedPage.BindingContext>
+        <viewModels:HomeViewModel />
+    </TabbedPage.BindingContext>
+
+    <!-- Navegación para página RUTA -->
+    <NavigationPage
+        Title="Ruta">
+        <x:Arguments>
+            <local:RutasPage />
+        </x:Arguments>
+    </NavigationPage>
+
+    <!-- Navegación para página CONFIGURACIÓN -->
+    <NavigationPage Title="Configuración">
+        <x:Arguments>
+            <local:ConfiguracionPage />
+        </x:Arguments>
+    </NavigationPage>
+
+    <!-- Navegación para página INFO -->
+    <NavigationPage Title="Info">
+        <x:Arguments>
+            <local:InfoPage />
+        </x:Arguments>
+    </NavigationPage>
+    
+</TabbedPage>

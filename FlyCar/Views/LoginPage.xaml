@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="FlyCar.Views.LoginPage"
+             BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
+             Title="FlyCar">
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding Login}">
+            <StackLayout Padding="20">
+                <Image
+                    Margin="20"
+                    Source="logounl"
+                    WidthRequest="175">
+                    
+                </Image>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Label 
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Correo"
+                        VerticalOptions="Center"/>
+                    
+                    <Entry 
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Text="{Binding Correo, Mode=TwoWay}"
+                        Keyboard="Email"
+                        Placeholder="Ingresa tu correo">
+                    </Entry>
+                    
+                    <Label 
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Password"
+                        VerticalOptions="Center">
+                    </Label>
+                    
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="{Binding Password, Mode=TwoWay}"
+                        IsPassword="true"
+                        Placeholder="Enter your password">
+                    </Entry>
+                </Grid>
+                
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}">
+                </ActivityIndicator>
+                
+                <Button
+                    BackgroundColor="Navy"
+                    BorderRadius="23"
+                    Command="{Binding LoginCommand}"
+                    IsEnabled="{Binding IsEnabled}"
+                    Margin="40,0"
+                    Text="LOGIN"
+                    TextColor="White">
+                    
+                </Button>
+
+                
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
